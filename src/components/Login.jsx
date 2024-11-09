@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { loginUser } from '../api/userAPI';
-
+import { showAlert } from '../utils/alertUtil';
 
 
 const Login = () => {
 
+   
+
     useEffect(() => {
         isLoggin();
      }, []);
+
+    
+    
     
     const isLoggin = () =>{
         const sesson = sessionStorage.getItem('jwt');
@@ -25,6 +30,18 @@ const handleSubmit = async (e) => {
     const username = e.target.username.value;
     const password = e.target.password.value;
 
+    //check if username match email pattern
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!emailPattern.test(username)) {
+      showAlert({
+        title: 'Error!',
+        text: 'Invalid Email Address',
+        icon: 'error',
+        confirmButtonText: 'Try Again'
+      });
+      return;
+    }
+
     try {
       // Call the login API
       const response = await loginUser(username, password);
@@ -32,16 +49,37 @@ const handleSubmit = async (e) => {
       console.log('Login successful:', response);
 
       if (response.success === 'false') {
-        alert("Login failed");
+        showAlert({
+          title: 'Error!',
+          text: 'Login Failed, Please try again',
+          icon: 'error',
+          confirmButtonText: 'Try Again'
+        });
       } 
       else {
         sessionStorage.setItem('jwt', response.token)
-        alert("Login Success")
-        window.location.href = '/' // Redirect to dashboard page
+
+        showAlert({
+          title: 'Success!',
+          text: 'Login Successful',
+          icon: 'success',
+          confirmButtonText: 'OK'
+        }).then(() => {
+          window.location.href = '/' 
+
+        });
+
       }
       
     } catch (err) {
       console.error('Login error:', err);
+      showAlert({
+        title: 'Error!',
+        text: 'Login Failed. Please try again.',
+        icon: 'error',
+        confirmButtonText: 'Try Again',
+        timer: 3000 // Alert will close automatically after 3 seconds
+      });
     }
 
 
