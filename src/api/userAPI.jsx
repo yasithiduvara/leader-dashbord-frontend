@@ -4,8 +4,8 @@ import apiClient from "./apiClient";
 // Function to update points
 export const updateUserPoints = async (userId, points) => {
   try {
-    const response = await apiClient.put(`/updatePoints`, {
-      userId,
+    const response = await apiClient.post(`/updatePoints`, {
+      email: userId,
       points,
     });
     return response.data;
