@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getUserByEmail } from "../api/userAPI";
 
 const UserPage = () => {
   const { userId } = useParams();
@@ -7,17 +8,9 @@ const UserPage = () => {
 
   useEffect(() => {
     // Fetch user data using the userId
-    const fetchUser = async () => {
-      try {
-        const response = await fetch(`/api/users/${userId}`);  // Adjust API endpoint as necessary
-        const data = await response.json();
-        setUser(data);
-      } catch (error) {
-        console.error('Error fetching user data:', error);
-      }
-    };
-
-    fetchUser();
+    getUserByEmail(userId).then((data) => {
+      setUser(data.data);
+    });
   }, [userId]);
 
   return (

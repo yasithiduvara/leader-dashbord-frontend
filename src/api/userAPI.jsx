@@ -1,5 +1,5 @@
 // frontend/src/api/userAPI.js
-import apiClient from './apiClient';
+import apiClient from "./apiClient";
 
 // Function to update points
 export const updateUserPoints = async (userId, points) => {
@@ -10,7 +10,7 @@ export const updateUserPoints = async (userId, points) => {
     });
     return response.data;
   } catch (error) {
-    console.error('Error updating points:', error);
+    console.error("Error updating points:", error);
     throw error;
   }
 };
@@ -24,7 +24,7 @@ export const loginUser = async (email, password) => {
     });
     return response.data;
   } catch (error) {
-    console.error('Error logging in:', error);
+    console.error("Error logging in:", error);
     throw error;
   }
 };
@@ -35,7 +35,19 @@ export const getAllUsers = async () => {
     const response = await apiClient.get(`/getall`);
     return response.data;
   } catch (error) {
-    console.error('Error fetching users:', error);
+    console.error("Error fetching users:", error);
+    throw error;
+  }
+};
+
+// Function to get user by email
+
+export const getUserByEmail = async (email) => {
+  try {
+    const response = await apiClient.get(`/getUserByEmail?email=${email}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching user:", error);
     throw error;
   }
 };
