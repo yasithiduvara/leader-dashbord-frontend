@@ -20,10 +20,10 @@ const Leaderboard = () => {
 
   return (
     <div className="flex justify-center items-center min-h-[100vh]">
-      <div className="bg-white shadow-md rounded p-6 w-full max-w-4xl h-3/4">
+      <div className="p-6 w-full max-w-4xl h-3/4">
         <h1 className="text-center text-2xl font-bold mb-4">Leaderboard</h1>
-        <div className="sticky top-0 bg-white z-10">
-          <div className="flex items-center justify-between py-2 px-2 border-b border-gray-200 last:border-0">
+        <div className="sticky top-0 bg-[#ccc8c8] z-10 mb-2 p-2 rounded-md">
+          <div className="flex items-center justify-between p-2 pb-2">
             <div className="w-1/12">Place</div>
             <div className="w-3/12">Name</div>
             <div className="w-2/12">Points</div>

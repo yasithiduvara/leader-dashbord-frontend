@@ -52,8 +52,8 @@ const UserPage = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="bg-white shadow-md rounded p-6 w-96">
+    <div className="flex justify-center p-10">
+      <div className="bg-white shadow-md rounded p-6 w-[30rem]">
         <h1 className="text-2xl font-bold mb-4">Update Points</h1>
         {user ? (
           <form onSubmit={handleSubmit}>
