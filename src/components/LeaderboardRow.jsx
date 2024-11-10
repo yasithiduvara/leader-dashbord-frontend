@@ -28,14 +28,9 @@ const LeaderboardRow = ({ place, name, points, change, email, userId }) => {
 
   return (
     <Link to={token !== "" ? `/user/${email}` : "#"} className="w-full">
-      <div className="flex items-center justify-between py-2 px-2 border-b border-gray-200 last:border-0">
+      <div className="flex items-center justify-between p-2 m-2  transition duration-300 ease-in-out  hover:bg-[#171651] hover:text-white rounded border-[2px] ">
         {/* Place */}
         <div className="w-1/12 text-center">
-          {change === "up" ? (
-            <span className="text-green-500">▲</span>
-          ) : change === "down" ? (
-            <span className="text-red-500">▼</span>
-          ) : null}{" "}
           {place}
         </div>
 

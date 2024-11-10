@@ -14,18 +14,18 @@ const Navigation = () => {
   }, [token]);
 
   return (
-    <div className="relative navigation-menu flex justify-between items-center p-4 bg-gray-800">
+    <div className="relative flex justify-between items-center p-4 bg-gray-800">
       <div className="flex space-x-4">
         <Link to={"/"}>
-          <button className="text-white no-underline px-4 py-2 rounded-full transition duration-300 ease-in-out hover:bg-white hover:text-gray-800">
+          <div className="text-white px-4 py-2 transition duration-300 ease-in-out hover:text-[#8dc2ff] hover:underline">
             Leaderboard
-          </button>
+          </div>
         </Link>
 
         <Link to={"/leaders"}>
-          <button className="text-white no-underline px-4 py-2 rounded-full transition duration-300 ease-in-out hover:bg-white hover:text-gray-800">
+          <div className="text-white px-4 py-2 transition duration-300 ease-in-out hover:text-[#8dc2ff] hover:underline">
             Leaders
-          </button>
+          </div>
         </Link>
       </div>
 
@@ -33,14 +33,30 @@ const Navigation = () => {
         <Link to={"/login"}>
           <button
             className={`text-white no-underline px-4 py-2 rounded-full transition duration-200 ease-in-out ${
-              token === "" ? "hover:bg-green-500" : "hover:bg-red-500"
-            } hover:text-gray-800`}
+              token === "" ? "hover:bg-green-500" : "hover:bg-[#7a2626]"
+            }`}
           >
             {token === "" ? "Log In" : "Log Out"}
           </button>
         </Link>
       </div>
     </div>
+
+//     <div className="relative h-[50px] flex justify-between items-center p-4 bg-[#011636]">
+//      <div className="flex space-x-4">
+//          <Link to={"/"}>
+//          <div className="text-white px-4 py-2 transition duration-300 ease-in-out hover:text-[#8dc2ff] hover:underline">
+//   Leaderboard
+// </div>
+//          </Link>
+
+//          <Link to={"/leaders"}>
+//            <div className="text-white px-4 py-2 transition duration-300 ease-in-out hover:text-[#8dc2ff] hover:underline">
+//              Leaders
+//            </div>
+//          </Link>
+//        </div>
+//     </div>
   );
 };
 

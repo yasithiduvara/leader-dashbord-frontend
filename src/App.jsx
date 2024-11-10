@@ -11,7 +11,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="min-h-[100vh]">
+      <div className="min-h-[100vh] bg-[#f1f1f1]">
         <Navgation />
         <Routes>
           <Route path="/" element={<Leaderboard />} />
