@@ -5,6 +5,7 @@ import UserPage from "./components/UserPage";
 import Login from "./components/Login";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Leaders from "./components/Leaders";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -15,6 +16,7 @@ function App() {
         <Navgation />
         <Routes>
           <Route path="/" element={<Leaderboard />} />
+          <Route path="/leaders" element={<Leaders />} />
           <Route path="/user/:userId" element={<UserPage />} />
           <Route path="/login" element={<Login />} />
         </Routes>
